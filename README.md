@@ -17,7 +17,7 @@ This file consists of four sections where (1) grasping-realted, (2) RL in roboti
 ## RL in robotics
 
 ## State-of-the-art Deep RL section
-- Trust Region Policy Optimization [Paper](https://arxiv.org/abs/1502.05477)
+- Trust Region Policy Optimization [Paper](https://arxiv.org/abs/1502.05477) \\
 The authors developed an algorithm for policy optimisation with guaranteed monotonic improvement. In practice, the optimization is constrained with KL divergence between two policies which guarantees to make small steps improving the original policy (theoretical results are provided). This helps us to avoid overfitting to the most recent batch of data. In the experiment sections author show that the algorithm works well for learning robotic control policies in simulated environment.
 
 - High-Dimensional Continuous Control Using Generalized Advantage Estimation 
