@@ -4,10 +4,10 @@ This file consists of four sections where (1) grasping-realted, (2) RL in roboti
 
 ## Table of Contents
 
- - [Grasping-related papers section](#Grasping-related--papers--section)
- - [State-of-the-art Deep RL section](#State-of-the-art--Deep--RL--section)
- - [Continuous high-dimensional action space RL](#Continuous--high-dimensional--action--space--RL)
- - [RL in robotics](#RL--in--robotics)
+ - [Grasping-related papers section](#grasping-related-papers-section)
+ - [State-of-the-art Deep RL section](#state-of-the-art-deep-rl-section)
+ - [Continuous high-dimensional action space RL](#continuous-high-dimensional-action-space-rl)
+ - [RL in robotics](#rl-in-robotics)
 
 
 ## Grasping-related papers section
