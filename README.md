@@ -107,12 +107,15 @@ The authors describe main successes and challenges of RL in robotics by July of 
 ## RL in robotics papers
 
 - **Learning to Poke by Poking: Experiential Learning of Intuitive Physics (Agrawal et al., 2016)** [Paper](https://arxiv.org/abs/1606.07419)
+
 The authors propose to learn the "intuitive" physics: understanding how actions effect objects with CNNs. The idea is to infer an action (a poke) given two photos of the same object before and after the action. This is done using a siamese CNN predicting the poke and a dataset with 50K pokes.
 
 - **End-to-End Training of Deep Visuomotor Policies (Sergey Levine et al., 2015)** [Paper](https://arxiv.org/abs/1504.00702)
+
 The authors show a method to learn torques command directly from raw visual input end-to-end. The method consists of two main components which are a supervised learning algorithm to learn a policy with a CNN and a trajectory-centric RL algorithm that provides the supervision for the first part. The method "requires the full state to be known during training, but not at test time". The approach is shown to be extremely sample-efficient and very effective in both simulated environments and real robot systems.
 
 - **Learning to Push by Grasping: Using multiple tasks for effective learning (Pinto & Gupta, 2016)** [Paper](https://arxiv.org/abs/1609.09025)
+
 The authors show that training a CNN can be done on different tasks such as grasping and pushing. "This paper attempts to break the myth of task-specific learning and shows that multi-task learning is not only effective but in fact improves the performance even when the total amount of data is the same".
 
 - **Deep Visual Foresight for Planning Robot Motion (Finn & Levine, 2016)** [Paper](https://arxiv.org/abs/1610.00696)
