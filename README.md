@@ -125,7 +125,7 @@ The authors developed a model to predict how sequence of pushing actions will af
 
 - **Embed to Control: A Locally Linear Latent Dynamics Model for Control from Raw Images (Watter et al., 2015)** [Paper](https://arxiv.org/abs/1506.07365)
 
-A state which is represented by a raw image is decoded into a lower dimensional space where "locally optimal control can be performed robustly and easily". TODO
+A state which is represented by a raw image is decoded into reprentation in a lower dimensional space where "locally optimal control can be performed robustly and easily". In this space methods for optimal control such as iLQR can be applied. The authors show that their approach is able to solve control problems such as controlling a simulated robot arm but do not provide any evaluation in real systems.
 
 
 
