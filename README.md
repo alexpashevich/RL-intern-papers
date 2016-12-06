@@ -1,6 +1,6 @@
 # RL-intern-papers
 
-A curated list of papers dedicated to reinforcement learning which can be useful during the internship. Each section consists of brief summaries of several papers on the topic. Some of the papers deserving in my opinion to be studied carefully are marked as **[highlight]**. The document consists of four sections from specific papers about grasping to general RL papers.
+A curated list of papers dedicated to reinforcement learning which can be useful during the internship. Each section consists of brief summaries of several papers on the topic. In each sections papers are given in the chronological order. Some of the papers which in my opinion deserve to be studied carefully, are marked as **[highlight]**. The document consists of four sections from specific papers about grasping to general RL papers.
 
 
 ## Table of Contents
