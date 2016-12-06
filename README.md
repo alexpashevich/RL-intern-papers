@@ -6,16 +6,19 @@ A curated list of papers dedicated to reinforcement learning which can be useful
 ## Table of Contents
 
 - [Grasping-related papers](#grasping-related-papers-papers)
+    - Some recent approaches to grasping using RL and surveys of the state of the art by 2013. Among other papers:
     - [Learning Hand-Eye Coordination for Robotic Grasping with Deep Learning and Large-Scale Data Collection (Levine et al., 2016)](#Levine2016a)
 - [RL in robotics papers](#rl-in-robotics-papers)
+    - Some recent papers exploiting Deep RL in the robotics domain. Among other papers:
     - [Deep Spatial Autoencoders for Visuomotor Learning (Finn et al., 2015)](#Finn2015a)
 - [Continuous high-dimensional action space RL papers](#continuous-high-dimensional-action-space-rl-papers)
+    - RL approaches that can be applied in robotics. Among other papers:
     - [High-Dimensional Continuous Control Using Generalized Advantage Estimation (Schulman et al., 2015)](#Schulman2015a)
     - [Learning Continuous Control Policies by Stochastic Value Gradients (Heess et al., 2015)](#Heess2015a)
     - [Continuous control with deep reinforcement learning (Lillicrap et al., 2016)](#Lillicrap2016a)
     - [Continuous Deep Q-Learning with Model-based Acceleration (Gu et al., 2016)](#Gu2016a)
 - [General Deep RL papers](#general-deep-rl-papers)
-    - Contains some ideas of both fundamental and modest imporvements of RL methods
+    - Contains some ideas of both modest and fundamental imporvements of RL methods. Among other papers:
     - [Reinforcement Learning with Unsupervised Auxiliary Tasks (Jaderberg et al., 2016)](#Jaderberg2016a)
 
 
@@ -28,6 +31,10 @@ The authors divide grasping methods into two main categories: analytic and data 
 - **Reinforcement Learning in Robotics: A Survey (Kober et al., 2013)** [Paper](http://www.ias.tu-darmstadt.de/uploads/Publications/Kober_IJRR_2013.pdf)
 
 The authors describe main successes and challenges of RL in robotics by July of 2013. The methods are classified into value function and policy search approaches. Most of the state-of-the-art methods are not presented in the paper as they appeared later.
+
+- **Acquiring Visual Servoing Reaching and Grasping Skills using Neural Reinforcement Learning (Lampe & Riedmiller, 2013)** [Paper](https://pdfs.semanticscholar.org/f22b/01deebcd471ccee8a3039a6f0fd09ff78b03.pdf)
+
+One of the early attempts for grasping using RL and neural networks.
 
 - **Supersizing Self-supervision: Learning to Grasp from 50K Tries and 700 Robot Hours (Pinto & Gupta, 2015)** [Paper](https://arxiv.org/abs/1509.06825)
 
@@ -45,15 +52,10 @@ The authors collected 800,000 grasp attempts to train a large CNN "to predict th
 
 
 
-
-
 ## RL in robotics papers
 
-- **Acquiring Visual Servoing Reaching and Grasping Skills using Neural Reinforcement Learning (Lampe & Riedmiller, 2013) [Paper](https://pdfs.semanticscholar.org/f22b/01deebcd471ccee8a3039a6f0fd09ff78b03.pdf)
-
-One of the early attempts for grasping using RL and neural networks.
-
-- **End-to-End Training of Deep Visuomotor Policies (Sergey Levine et al., 2015)** [Paper](https://arxiv.org/abs/1504.00702)
+<a name="Levine2015a"/>
+- **End-to-End Training of Deep Visuomotor Policies (Levine et al., 2015)** [Paper](https://arxiv.org/abs/1504.00702)
 
 The authors show a method to learn torques command directly from raw visual input end-to-end. The method consists of two main components which are a supervised learning algorithm to learn a policy with a CNN and a trajectory-centric RL algorithm that provides the supervision for the first part. The method "requires the full state to be known during training, but not at test time". The approach is shown to be extremely sample-efficient and very effective in both simulated environments and real robot systems.
 
@@ -64,13 +66,15 @@ A state which is represented by a raw image is decoded into reprentation in a lo
 <a name="Finn2015a"/>
 - **[highlight] Deep Spatial Autoencoders for Visuomotor Learning (Finn et al., 2015)** [Paper](https://arxiv.org/abs/1509.06113)
 
-- **Learning to Push by Grasping: Using multiple tasks for effective learning (Pinto & Gupta, 2016)** [Paper](https://arxiv.org/abs/1609.09025)
-
-The authors show that training a CNN can be done on different tasks such as grasping and pushing. "This paper attempts to break the myth of task-specific learning and shows that multi-task learning is not only effective but in fact improves the performance even when the total amount of data is the same".
+An improved version of the previous approach [(Levine et al., 2015)](#Levine2015a) where the authors show how to overcome the need of observing the full state by introducing autoencoders. TODO
 
 - **Learning to Poke by Poking: Experiential Learning of Intuitive Physics (Agrawal et al., 2016)** [Paper](https://arxiv.org/abs/1606.07419)
 
 The authors propose to learn the "intuitive" physics: understanding how actions effect objects with CNNs. The idea is to infer an action (a poke) given two photos of the same object before and after the action. This is done using a siamese CNN predicting the poke and a dataset with 50K pokes.
+
+- **Learning to Push by Grasping: Using multiple tasks for effective learning (Pinto & Gupta, 2016)** [Paper](https://arxiv.org/abs/1609.09025)
+
+The authors show that training a CNN can be done on different tasks such as grasping and pushing. "This paper attempts to break the myth of task-specific learning and shows that multi-task learning is not only effective but in fact improves the performance even when the total amount of data is the same".
 
 - **Deep Visual Foresight for Planning Robot Motion (Finn & Levine, 2016)** [Paper](https://arxiv.org/abs/1610.00696)
 
@@ -107,11 +111,11 @@ The authors present an actor-critic algorithm, model-free, off-policy algorithm 
 <a name="Gu2016a"/>
 - **[highlight] Continuous Deep Q-Learning with Model-based Acceleration (Gu et al., 2016)** [Paper](http://arxiv.org/abs/1603.00748)
 
-The first contribution of the paper is the Normalized Advantage Function (NAF) algorithm where to deal with the continuous action space, the advantage fuction is represented as a quadratic function of the state. This allows to analytically find its maximum and deduce the policy. The second contribution is the model-based method similar to Dyna-Q approach when in addition to real actions, imaginary rollouts are made. The authors fit a linear model locally around the latest sets of example and show that this helps to accelerate the training on the early stages. The method is shown to work slightly better than the previous one, DPPG [(Lillicrap et al., 2016)](http://arxiv.org/abs/1509.02971), on majority of tasks such as three-joint reacher, peg insertion and locomotion. The authors claims that "NAF outperformed DDPG on particularly manipulation tasks that require precision and suffer less from the lack of multimodal Q-functions".
+The first contribution of the paper is the Normalized Advantage Function (NAF) algorithm where to deal with the continuous action space the advantage fuction is represented as a quadratic function of the state. This allows to analytically find its maximum and deduce the policy. The second contribution is the model-based method similar to Dyna-Q approach when in addition to real actions, imaginary rollouts are made. The authors fit a linear model locally around the latest sets of example and show that this helps to accelerate the training on the early stages. The method is shown to work slightly better than the previous one, DPPG [(Lillicrap et al., 2016)](#Lillicrap2016a), on majority of tasks such as three-joint reacher, peg insertion and locomotion. The authors claims that "NAF outperformed DDPG on particularly manipulation tasks that require precision and suffer less from the lack of multimodal Q-functions".
 
 - **Deep Reinforcement Learning for Robotic Manipulation (Gu et al., 2016)** [Paper](http://arxiv.org/abs/1610.00633)
 
-In the paper the previous approach [(Gu et al., 2016)](http://arxiv.org/abs/1603.00748) is applied to a system with multiple robots where multiple workers collect training data and send to a central server. The training is done with the NAF method on simulated tasks and real-world random target reaching and door opening. The authors show that NAF and DDPG have roughly the same performance.
+In the paper the previous approach [(Gu et al., 2016)](#Gu2016a) is applied to a system with multiple robots where multiple workers collect training data and send to a central server. The training is done with the NAF method on simulated tasks and real-world random target reaching and door opening. The authors show that NAF and DDPG have roughly the same performance.
 
 
 
@@ -131,15 +135,15 @@ The authors of the paper propose a technique called Prioritized Experience Repla
 
 - **Dueling Network Architectures for Deep Reinforcement Learning (Wang et al., 2015)** [Paper](https://arxiv.org/abs/1511.06581)
 
-The authors argue that the traditional architecture of NN for evaluating a value function is not the optimal one and propose to separately estimate the value function and the advantage function by separating the stream of NN in two. Such approach outperforms baselines and was successfully used in [(Gu et al., 2016)](http://arxiv.org/abs/1603.00748).
+The authors argue that the traditional architecture of NN for evaluating a value function is not the optimal one and propose to separately estimate the value function and the advantage function by separating the stream of NN in two. Such approach outperforms baselines and was successfully used in [(Gu et al., 2016)](#Gu2016a).
+
+- **Asynchronous Methods for Deep Reinforcement Learning (Mnih et al., 2016)** [Paper](https://arxiv.org/abs/1602.01783)
+
+In the paper the authors propose to use asynchronous methods of training of DRL algorithm such as SARSA, 1 step and n steps Q-Learning and Advantage Actor-Critic [(Schulman et al., 2015)](#Schulman2015a). They propose to train it on multiple CPUs of single machine rather than on GPU in a fashion where each core has its own copy of environment. After making some replays and performing on-line training, they update the global model using Hogwild style updates (hoping for the best, the parameters are not locked and updated asynchronously). The authors show that such technique allows us to remove the experience replay and outperform DQN trained on GPU. Among the used RL approaches, they claim the Advantage Actor-Critic method to achieve the best results.
 
 - **Deep Exploration via Bootstrapped DQN (Osband et al., 2016)** [Paper](https://arxiv.org/abs/1602.04621)
 
 Deep exploration is done using a shared architecture of DQN where K bootstrapped "heads" branching off independently. Thus, K approximations of the Q functions are made with a single NN which add randomness and improve the exploration.
-
-- **Asynchronous Methods for Deep Reinforcement Learning (Mnih et al., 2016)** [Paper](https://arxiv.org/abs/1602.01783)
-
-In the paper the authors propose to use asynchronous methods of training of DRL algorithm such as SARSA, 1 step and n steps Q-Learning and Advantage Actor-Critic [(Schulman et al., 2015)](https://arxiv.org/abs/1506.02438). They propose to train it on multiple CPUs of single machine rather than on GPU in a fashion where each core has its own copy of environment. After making some replays and performing on-line training, they update the global model using Hogwild style updates (hoping for the best, the parameters are not locked and updated asynchronously). The authors show that such technique allows us to remove the experience replay and outperform DQN trained on GPU. Among the used RL approaches, they claim the Advantage Actor-Critic method to achieve the best results.
 
 - **Curiosity-driven Exploration in Deep Reinforcement Learning via Bayesian Neural Networks (Houthooft et al., 2016)** [Paper](https://arxiv.org/abs/1605.09674)
 
