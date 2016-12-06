@@ -5,10 +5,78 @@ A curated list of papers dedicated to reinforcement learning which can be useful
 
 ## Table of Contents
 
+- [Grasping-related papers](#grasping-related-papers-papers)
+-- [paper1](#Levine2016a)
+- [RL in robotics papers](#rl-in-robotics-papers)
+-- [paper2](#Finn2015a)
 - [Continuous high-dimensional action space RL papers](#continuous-high-dimensional-action-space-rl-papers)
 - [General Deep RL papers](#general-deep-rl-papers)
-- [Grasping-related papers](#grasping-related-papers-papers)
-- [RL in robotics papers](#rl-in-robotics-papers)
+-- Contains some ideas of both fundamental and modest imporvements of RL methods
+
+
+## Grasping-related papers
+
+- **Data-Driven Grasp Synthesis - A Survey (Bohg et al., 2013)** [Paper](http://arxiv.org/abs/1309.2660)
+
+The authors divide grasping methods into two main categories: analytic and data driven. Among the data driven methods proposed classification is grasping of known objects (1), of familiar objects (2) and of unknown objects (3). One of the paragraphs is dedicated to RL-based methods.
+
+- **Reinforcement Learning in Robotics: A Survey (Kober et al., 2013)** [Paper](http://www.ias.tu-darmstadt.de/uploads/Publications/Kober_IJRR_2013.pdf)
+
+The authors describe main successes and challenges of RL in robotics by July of 2013. The methods are classified into value function and policy search approaches. Most of the state-of-the-art methods are not presented in the paper as they appeared later.
+
+- **Supersizing Self-supervision: Learning to Grasp from 50K Tries and 700 Robot Hours (Pinto & Gupta, 2015)** [Paper](https://arxiv.org/abs/1509.06825)
+
+The authors reformulate the grasping problem as a regression task with 18-dimensional likelihood vector (coarsely discretized 180-degree space). The collected dataset has 50K samples and is available online. During every trial, a random region of the image and a random angle are sampled for which a robot executes a trial. After the data collection, a CNN is trained to approximate the samples. The authors compare their approach with some methods such as SVM, kNN, min eigenvalue and eigenvalue limit and claim their method to overcome the baselines.
+
+<a name="Levine2016a"/>
+- **[highlight] Learning Hand-Eye Coordination for Robotic Grasping with Deep Learning and Large-Scale Data Collection (Levine et al., 2016)** [Paper](https://arxiv.org/abs/1603.02199)
+
+The authors collected 800,000 grasp attempts to train a large CNN "to predict the probability that task-space motion of the gripper will result in successful grasps, using only monocular camera images". In addition to the predicting CNN, they used a servoing function that samples actions using the cross-entropy method, assesses them with the CNN and control the robot. The authors provide the dataset which was collected by 14 independent robots.
+
+
+
+
+
+
+
+
+
+
+## RL in robotics papers
+
+- **End-to-End Training of Deep Visuomotor Policies (Sergey Levine et al., 2015)** [Paper](https://arxiv.org/abs/1504.00702)
+
+The authors show a method to learn torques command directly from raw visual input end-to-end. The method consists of two main components which are a supervised learning algorithm to learn a policy with a CNN and a trajectory-centric RL algorithm that provides the supervision for the first part. The method "requires the full state to be known during training, but not at test time". The approach is shown to be extremely sample-efficient and very effective in both simulated environments and real robot systems.
+
+<a name="Finn2015a"/>
+- **[highlight] Deep Spatial Autoencoders for Visuomotor Learning (Finn et al., 2015)** [Paper](https://arxiv.org/abs/1509.06113)
+
+- **Learning to Push by Grasping: Using multiple tasks for effective learning (Pinto & Gupta, 2016)** [Paper](https://arxiv.org/abs/1609.09025)
+
+The authors show that training a CNN can be done on different tasks such as grasping and pushing. "This paper attempts to break the myth of task-specific learning and shows that multi-task learning is not only effective but in fact improves the performance even when the total amount of data is the same".
+
+- **Learning to Poke by Poking: Experiential Learning of Intuitive Physics (Agrawal et al., 2016)** [Paper](https://arxiv.org/abs/1606.07419)
+
+The authors propose to learn the "intuitive" physics: understanding how actions effect objects with CNNs. The idea is to infer an action (a poke) given two photos of the same object before and after the action. This is done using a siamese CNN predicting the poke and a dataset with 50K pokes.
+
+- **Deep Visual Foresight for Planning Robot Motion (Finn & Levine, 2016)** [Paper](https://arxiv.org/abs/1610.00696)
+
+The authors developed a model to predict how sequence of pushing actions will affect a position of certain point of an object. For this task an estimator based on convolutional LSTM neural network to predict probability that a certain sequence of actions will lead to achieving the goal was developed. Then the sequences were sampled using the cross-entropy method (CEM). The best action according to the proposed estimator was chosen. Such predictive model showed ability to manipulate previously unseen objects.
+
+
+- **Embed to Control: A Locally Linear Latent Dynamics Model for Control from Raw Images (Watter et al., 2015)** [Paper](https://arxiv.org/abs/1506.07365)
+
+A state which is represented by a raw image is decoded into reprentation in a lower dimensional space where "locally optimal control can be performed robustly and easily". In this space methods for optimal control such as iLQR can be applied. The authors show that their approach is able to solve control problems such as controlling a simulated robot arm but do not provide any evaluation in real systems.
+
+- **Acquiring Visual Servoing Reaching and Grasping Skills using Neural Reinforcement Learning (Lampe & Riedmiller, 2013) [Paper](https://pdfs.semanticscholar.org/f22b/01deebcd471ccee8a3039a6f0fd09ff78b03.pdf)
+
+One of the early attempts for grasping using RL and neural networks.
+
+
+
+
+
+
 
 
 ## Continuous high-dimensional action space RL papers
@@ -78,54 +146,6 @@ Deep exploration is done using a shared architecture of DQN where K bootstrapped
 
 
 
-
-## Grasping-related papers
-
-- **Learning Hand-Eye Coordination for Robotic Grasping with Deep Learning and Large-Scale Data Collection (Sergey Levine et al., 2016)** [Paper](https://arxiv.org/abs/1603.02199)
-
-The authors collected 800,000 grasp attempts to train a large CNN "to predict the probability that task-space motion of the gripper will result in successful grasps, using only monocular camera images". In addition to the predicting CNN, they used a servoing function that samples actions using the cross-entropy method, assesses them with the CNN and control the robot. The authors provide the dataset which was collected by 14 independent robots.
-
-- **Supersizing Self-supervision: Learning to Grasp from 50K Tries and 700 Robot Hours (Pinto & Gupta, 2015)** [Paper](https://arxiv.org/abs/1509.06825)
-
-The authors reformulate the grasping problem as a regression task with 18-dimensional likelihood vector (coarsely discretized 180-degree space). The collected dataset has 50K samples and is available online. During every trial, a random region of the image and a random angle are sampled for which a robot executes a trial. After the data collection, a CNN is trained to approximate the samples. The authors compare their approach with some methods such as SVM, kNN, min eigenvalue and eigenvalue limit and claim their method to overcome the baselines.
-
-- **Data-Driven Grasp Synthesis - A Survey (Bohg et al., 2013)** [Paper](http://arxiv.org/abs/1309.2660)
-
-The authors divide grasping methods into two main categories: analytic and data driven. Among the data driven methods proposed classification is grasping of known objects (1), of familiar objects (2) and of unknown objects (3). One of the paragraphs is dedicated to RL-based methods.
-
-- **Reinforcement Learning in Robotics: A Survey (Kober et al., 2013)** [Paper](http://www.ias.tu-darmstadt.de/uploads/Publications/Kober_IJRR_2013.pdf)
-
-The authors describe main successes and challenges of RL in robotics by July of 2013. The methods are classified into value function and policy search approaches. Most of the state-of-the-art methods are not presented in the paper as they appeared later.
-
-
-
-
-
-
-
-
-## RL in robotics papers
-
-- **Learning to Poke by Poking: Experiential Learning of Intuitive Physics (Agrawal et al., 2016)** [Paper](https://arxiv.org/abs/1606.07419)
-
-The authors propose to learn the "intuitive" physics: understanding how actions effect objects with CNNs. The idea is to infer an action (a poke) given two photos of the same object before and after the action. This is done using a siamese CNN predicting the poke and a dataset with 50K pokes.
-
-- **End-to-End Training of Deep Visuomotor Policies (Sergey Levine et al., 2015)** [Paper](https://arxiv.org/abs/1504.00702)
-
-The authors show a method to learn torques command directly from raw visual input end-to-end. The method consists of two main components which are a supervised learning algorithm to learn a policy with a CNN and a trajectory-centric RL algorithm that provides the supervision for the first part. The method "requires the full state to be known during training, but not at test time". The approach is shown to be extremely sample-efficient and very effective in both simulated environments and real robot systems.
-
-- **Learning to Push by Grasping: Using multiple tasks for effective learning (Pinto & Gupta, 2016)** [Paper](https://arxiv.org/abs/1609.09025)
-
-The authors show that training a CNN can be done on different tasks such as grasping and pushing. "This paper attempts to break the myth of task-specific learning and shows that multi-task learning is not only effective but in fact improves the performance even when the total amount of data is the same".
-
-- **Deep Visual Foresight for Planning Robot Motion (Finn & Levine, 2016)** [Paper](https://arxiv.org/abs/1610.00696)
-
-The authors developed a model to predict how sequence of pushing actions will affect a position of certain point of an object. For this task an estimator based on convolutional LSTM neural network to predict probability that a certain sequence of actions will lead to achieving the goal was developed. Then the sequences were sampled using the cross-entropy method (CEM). The best action according to the proposed estimator was chosen. Such predictive model showed ability to manipulate previously unseen objects.
-
-
-- **Embed to Control: A Locally Linear Latent Dynamics Model for Control from Raw Images (Watter et al., 2015)** [Paper](https://arxiv.org/abs/1506.07365)
-
-A state which is represented by a raw image is decoded into reprentation in a lower dimensional space where "locally optimal control can be performed robustly and easily". In this space methods for optimal control such as iLQR can be applied. The authors show that their approach is able to solve control problems such as controlling a simulated robot arm but do not provide any evaluation in real systems.
 
 
 
