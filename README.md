@@ -1,6 +1,6 @@
 # RL-intern-papers
 
-A curated list of papers dedicated to reinforcement learning which can be useful during my internship. Each section consists of summaries of several papers on the topic. Some of the papers which deserve more attention in my opinion are marked as **[highlight]**.
+A curated list of papers dedicated to reinforcement learning which can be useful during the internship. Each section consists of brief summaries of several papers on the topic. Some of the papers deserving in my opinion to be studied carefully are marked as **[highlight]**. The document consists of four sections from specific papers about grasping to general RL papers.
 
 
 ## Table of Contents
@@ -12,13 +12,13 @@ A curated list of papers dedicated to reinforcement learning which can be useful
     - Some recent papers exploiting Deep RL in the robotics domain. Among other papers:
     - [Deep Spatial Autoencoders for Visuomotor Learning (Finn et al., 2015)](#Finn2015a)
 - [Continuous high-dimensional action space RL papers](#continuous-high-dimensional-action-space-rl-papers)
-    - RL approaches that can be applied in robotics. Among other papers:
+    - Deep RL approaches that can be applied in robotics. Among other papers:
     - [High-Dimensional Continuous Control Using Generalized Advantage Estimation (Schulman et al., 2015)](#Schulman2015a)
     - [Learning Continuous Control Policies by Stochastic Value Gradients (Heess et al., 2015)](#Heess2015a)
     - [Continuous control with deep reinforcement learning (Lillicrap et al., 2016)](#Lillicrap2016a)
     - [Continuous Deep Q-Learning with Model-based Acceleration (Gu et al., 2016)](#Gu2016a)
 - [General Deep RL papers](#general-deep-rl-papers)
-    - Contains some ideas of both modest and fundamental imporvements of RL methods. Among other papers:
+    - Contains some ideas of both modest and fundamental imporvements of performance of RL methods. Among other papers:
     - [Reinforcement Learning with Unsupervised Auxiliary Tasks (Jaderberg et al., 2016)](#Jaderberg2016a)
 
 
@@ -66,7 +66,7 @@ A state which is represented by a raw image is decoded into reprentation in a lo
 <a name="Finn2015a"/>
 - **[highlight] Deep Spatial Autoencoders for Visuomotor Learning (Finn et al., 2015)** [Paper](https://arxiv.org/abs/1509.06113)
 
-An improved version of the previous approach [(Levine et al., 2015)](#Levine2015a) where the authors show how to overcome the need of observing the full state by introducing autoencoders. TODO
+An improved version of the previous approach [(Levine et al., 2015)](#Levine2015a) where the authors show how to overcome the need of observing the full state by introducing autoencoders so the learning becomes unsupervise. The deep autoencoders are learnt to extract features with information about locations of important objects. The algorithm is divided in three parts: 1) learning controler without using video with the method similar to [(Levine et al., 2015)](#Levine2015a), 2) training the autoencoder and 3) learning video-based control again with method from [(Levine et al., 2015)](#Levine2015a) and with the features from the autoencoder. The approach has the same advantages as its supervised version such as sample-efficiency and effectiveness, however the learnt features are not perfect and several heuristics such as Kalman filters and pruning are used to eliminate this issue.
 
 - **Learning to Poke by Poking: Experiential Learning of Intuitive Physics (Agrawal et al., 2016)** [Paper](https://arxiv.org/abs/1606.07419)
 
